@@ -22,6 +22,6 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: Pack with dotnet
-      run: dotnet pack src/OracleClientExtension/OracleClientExtension.csproj --output nuget-packages --configuration Release
+      run: dotnet pack src/OracleClientExtension.csproj --output nuget-packages --configuration Release
     - name: Push with dotnet
       run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_DEPLOY_KEY }} --source https://api.nuget.org/v3/index.json
