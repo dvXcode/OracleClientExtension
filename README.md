@@ -1,9 +1,11 @@
+![](https://github.com/sdaniil/OracleClientExtension/blob/master/OracleClientExtension/images/OracleClientExtesion.png)
+
 # OracleClientExtension
 This is a tiny library with which you can extend the possibilities of the OracleClient. Easy way to get Entities, ExpandoObjects and much more.
 
 ## Features
 - Retrive data as ExpandoObject
-- Retrive data as Entyty T
+- Retrive data as Entity T
 - 
 - 
 
