@@ -14,10 +14,6 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   
-  <PropertyGroup>
-	<IncludeSymbols>true</IncludeSymbols>
-	<SymbolPackageFormat>true</SymbolPackageFormat>
-  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.70" />
   </ItemGroup>
