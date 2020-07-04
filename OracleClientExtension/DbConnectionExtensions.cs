@@ -44,17 +44,5 @@ namespace OracleClientExtensions
             return command;
         }
 
-        /// <summary>
-        /// Create Command
-        /// </summary>
-        /// <param name="conn"></param>
-        /// <param name="commandFactory"></param>
-        /// <returns></returns>
-      /*  public static OracleCommand CreateCommand(this OracleConnection conn, Action<OracleCommand> commandFactory)
-        {
-            using var command = conn.CreateCommand();
-            commandFactory?.Invoke(command);
-            return command;
-        }*/
     }
 }
