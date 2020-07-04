@@ -86,8 +86,6 @@ namespace OracleClientExtensions
         /// <returns></returns>
         public static IEnumerable<T> ToEntities<T>(this IDataReader reader) where T : new()
         {
-            
-
             var type = typeof(T);
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             var fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
