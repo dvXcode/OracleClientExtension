@@ -1,3 +1,5 @@
+[![Latest nuget release](https://img.shields.io/nuget/v/OracleClientExtension?style=flat-square&label=nuget)](https://www.nuget.org/packages/OracleClientExtension)
+
 ![](https://github.com/sdaniil/OracleClientExtension/blob/master/OracleClientExtension/images/OracleClientExtesion.png)
 
 # OracleClientExtension
