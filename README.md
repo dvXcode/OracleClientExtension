@@ -9,15 +9,51 @@ This is a tiny library with which you can extend the possibilities of the Oracle
 - 
 - 
 
+## Installing
+#### Via Package Manager 
+```powershell
+Install-Package OracleClientExtension -Version 0.2.4
+```
+#### Via .NET CLI
+```powershell
+dotnet add package OracleClientExtension --version 0.2.4
+```
 
 ## Samples
+#### Get data from table as ExpandoObjects
 ```c#
 private readonly string _connectionString = "Data Source=localhost/XE;Persist Security Info=True;User ID=USER;Password=PASSWORD";
+...
 try
 {
     await using var conn = new OracleConnection(connectionString: _connectionString);
     await conn.OpenAsync();
     var resp = await conn.ExecuteExpandoObjectsAsync("SELECT * FROM DEMO WHERE ROWNUM <= 10");
+}
+catch (Exception ex)
+{
+    throw ex;
+}
+```
+
+#### Get data from table as custom Entity object
+```c#
+private readonly string _connectionString = "Data Source=localhost/XE;Persist Security Info=True;User ID=USER;Password=PASSWORD";
+...
+public class DemoEntity
+{
+		public int EMPNO { get; set; }
+		public string ENAME { get; set; }
+		public string JOB { get; set; }
+		public DateTime HIREDATE { get; set; }
+		public int DEPTNO { get; set; }
+}
+...
+try
+{
+    await using var conn = new OracleConnection(connectionString: _connectionString);
+    await conn.OpenAsync();
+    var resp = await conn.ExecuteEntitiesAsync<DemoEntity>("SELECT * FROM DEMO WHERE ROWNUM <= 10");
 }
 catch (Exception ex)
 {
