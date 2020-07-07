@@ -8,7 +8,7 @@ This is a tiny library with which you can extend the possibilities of the Oracle
 ## Features
 - Retrive data as ExpandoObject
 - Retrive data as Entity T
-- 
+- Test
 - 
 
 ## Installing
