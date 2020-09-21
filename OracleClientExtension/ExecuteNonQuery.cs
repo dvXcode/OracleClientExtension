@@ -130,7 +130,7 @@ namespace OracleClientExtensions
         /// </summary>
         /// <param name="conn"></param>
         /// <param name="commandFactory"></param>
-        public static Task ExecuteNonQueryAsync(this OracleConnection conn, Action<OracleCommand> commandFactory)
+        public static  Task ExecuteNonQueryAsync(this OracleConnection conn, Action<OracleCommand> commandFactory)
         {
             using var command = conn.CreateCommand(commandFactory);
             return command.ExecuteNonQueryAsync();

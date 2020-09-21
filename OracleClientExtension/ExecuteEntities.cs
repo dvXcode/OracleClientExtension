@@ -184,10 +184,10 @@ namespace OracleClientExtensions
         /// <param name="cmdText"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText) where T : new()
+        public static async Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText) where T : new()
         {
             
-            return conn.ExecuteEntitiesAsync<T>(cmdText, null, CommandType.Text, null);
+            return await conn.ExecuteEntitiesAsync<T>(cmdText, null, CommandType.Text, null);
         }
 
         /// <summary>
@@ -198,10 +198,10 @@ namespace OracleClientExtensions
         /// <param name="transaction"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleTransaction transaction) where T : new()
+        public static async Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleTransaction transaction) where T : new()
         {
             
-            return conn.ExecuteEntitiesAsync<T>(cmdText, null, CommandType.Text, transaction);
+            return await conn.ExecuteEntitiesAsync<T>(cmdText, null, CommandType.Text, transaction);
         }
 
         /// <summary>
@@ -212,10 +212,10 @@ namespace OracleClientExtensions
         /// <param name="commandType"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, CommandType commandType) where T : new()
+        public static async Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, CommandType commandType) where T : new()
         {
             
-            return conn.ExecuteEntitiesAsync<T>(cmdText, null, commandType, null);
+            return await conn.ExecuteEntitiesAsync<T>(cmdText, null, commandType, null);
         }
 
         /// <summary>
@@ -227,11 +227,11 @@ namespace OracleClientExtensions
         /// <param name="transaction"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, CommandType commandType, OracleTransaction transaction)
+        public static async Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, CommandType commandType, OracleTransaction transaction)
         where T : new()
         {
             
-            return conn.ExecuteEntitiesAsync<T>(cmdText, null, commandType, transaction);
+            return await conn.ExecuteEntitiesAsync<T>(cmdText, null, commandType, transaction);
         }
 
         /// <summary>
@@ -242,10 +242,10 @@ namespace OracleClientExtensions
         /// <param name="parameters"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleParameter[] parameters) where T : new()
+        public static async Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleParameter[] parameters) where T : new()
         {
             
-            return conn.ExecuteEntitiesAsync<T>(cmdText, parameters, CommandType.Text, null);
+            return await conn.ExecuteEntitiesAsync<T>(cmdText, parameters, CommandType.Text, null);
         }
 
         /// <summary>
@@ -257,11 +257,11 @@ namespace OracleClientExtensions
         /// <param name="transaction"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleParameter[] parameters, OracleTransaction transaction)
+        public static async Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleParameter[] parameters, OracleTransaction transaction)
         where T : new()
         {
             
-            return conn.ExecuteEntitiesAsync<T>(cmdText, parameters, CommandType.Text, transaction);
+            return await conn.ExecuteEntitiesAsync<T>(cmdText, parameters, CommandType.Text, transaction);
         }
 
         /// <summary>
@@ -273,11 +273,11 @@ namespace OracleClientExtensions
         /// <param name="commandType"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType)
+        public static async Task<IEnumerable<T>> ExecuteEntitiesAsync<T>(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType)
         where T : new()
         {
             
-            return conn.ExecuteEntitiesAsync<T>(cmdText, parameters, commandType, null);
+            return await conn.ExecuteEntitiesAsync<T>(cmdText, parameters, commandType, null);
         }
     }
 }

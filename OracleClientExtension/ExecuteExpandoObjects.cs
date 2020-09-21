@@ -165,9 +165,9 @@ namespace OracleClientExtensions
         /// <param name="conn"></param>
         /// <param name="cmdText"></param>
         /// <returns></returns>
-        public static Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText)
+        public static async Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText)
         {
-            return conn.ExecuteExpandoObjectsAsync(cmdText, null, CommandType.Text, null);
+            return await conn.ExecuteExpandoObjectsAsync(cmdText, null, CommandType.Text, null);
         }
 
         /// <summary>
@@ -177,9 +177,9 @@ namespace OracleClientExtensions
         /// <param name="cmdText"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public static Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleTransaction transaction)
+        public static async Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleTransaction transaction)
         {
-            return conn.ExecuteExpandoObjectsAsync(cmdText, null, CommandType.Text, transaction);
+            return await conn.ExecuteExpandoObjectsAsync(cmdText, null, CommandType.Text, transaction);
         }
 
         /// <summary>
@@ -189,9 +189,9 @@ namespace OracleClientExtensions
         /// <param name="cmdText"></param>
         /// <param name="commandType"></param>
         /// <returns></returns>
-        public static Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, CommandType commandType)
+        public static async Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, CommandType commandType)
         {
-            return conn.ExecuteExpandoObjectsAsync(cmdText, null, commandType, null);
+            return await conn.ExecuteExpandoObjectsAsync(cmdText, null, commandType, null);
         }
 
         /// <summary>
@@ -202,9 +202,9 @@ namespace OracleClientExtensions
         /// <param name="commandType"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public static Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, CommandType commandType, OracleTransaction transaction)
+        public static async Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, CommandType commandType, OracleTransaction transaction)
         {
-            return conn.ExecuteExpandoObjectsAsync(cmdText, null, commandType, transaction);
+            return await conn.ExecuteExpandoObjectsAsync(cmdText, null, commandType, transaction);
         }
 
         /// <summary>
@@ -214,9 +214,9 @@ namespace OracleClientExtensions
         /// <param name="cmdText"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters)
+        public static async Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters)
         {
-            return conn.ExecuteExpandoObjectsAsync(cmdText, parameters, CommandType.Text, null);
+            return await conn.ExecuteExpandoObjectsAsync(cmdText, parameters, CommandType.Text, null);
         }
 
         /// <summary>
@@ -227,9 +227,9 @@ namespace OracleClientExtensions
         /// <param name="parameters"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public static Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, OracleTransaction transaction)
+        public static async Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, OracleTransaction transaction)
         {
-            return conn.ExecuteExpandoObjectsAsync(cmdText, parameters, CommandType.Text, transaction);
+            return await conn.ExecuteExpandoObjectsAsync(cmdText, parameters, CommandType.Text, transaction);
         }
 
         /// <summary>
@@ -240,9 +240,9 @@ namespace OracleClientExtensions
         /// <param name="parameters"></param>
         /// <param name="commandType"></param>
         /// <returns></returns>
-        public static Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType)
+        public static async Task<IEnumerable<dynamic>> ExecuteExpandoObjectsAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType)
         {
-            return conn.ExecuteExpandoObjectsAsync(cmdText, parameters, commandType, null);
+            return await conn.ExecuteExpandoObjectsAsync(cmdText, parameters, commandType, null);
         }
     }
 }

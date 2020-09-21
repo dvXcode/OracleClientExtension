@@ -130,11 +130,11 @@ namespace OracleClientExtensions
         /// <param name="commandType"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType,
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType,
             OracleTransaction transaction)
         {
-            using var command = conn.CreateCommand(cmdText, commandType, transaction, parameters);
-            return ExecuteReaderAsync(command);
+            await using var command =  conn.CreateCommand(cmdText, commandType, transaction, parameters);
+            return await ExecuteReaderAsync(command);
         }
 
         /// <summary>
@@ -143,10 +143,10 @@ namespace OracleClientExtensions
         /// <param name="conn"></param>
         /// <param name="commandFactory"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, Action<OracleCommand> commandFactory)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, Action<OracleCommand> commandFactory)
         {
-            using var command = conn.CreateCommand(commandFactory);
-            return ExecuteReaderAsync(command);
+            await using var command = conn.CreateCommand(commandFactory);
+            return await ExecuteReaderAsync(command);
         }
 
         /// <summary>
@@ -155,9 +155,9 @@ namespace OracleClientExtensions
         /// <param name="conn"></param>
         /// <param name="cmdText"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText)
         {
-            return conn.ExecuteReaderAsync(cmdText, null, CommandType.Text, null);
+            return await conn.ExecuteReaderAsync(cmdText, null, CommandType.Text, null);
         }
 
         /// <summary>
@@ -167,9 +167,9 @@ namespace OracleClientExtensions
         /// <param name="cmdText"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleTransaction transaction)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleTransaction transaction)
         {
-            return conn.ExecuteReaderAsync(cmdText, null, CommandType.Text, transaction);
+            return await conn.ExecuteReaderAsync(cmdText, null, CommandType.Text, transaction);
         }
 
         /// <summary>
@@ -179,9 +179,9 @@ namespace OracleClientExtensions
         /// <param name="cmdText"></param>
         /// <param name="commandType"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, CommandType commandType)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, CommandType commandType)
         {
-            return conn.ExecuteReaderAsync(cmdText, null, commandType, null);
+            return await conn.ExecuteReaderAsync(cmdText, null, commandType, null);
         }
 
         /// <summary>
@@ -192,9 +192,9 @@ namespace OracleClientExtensions
         /// <param name="commandType"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, CommandType commandType, OracleTransaction transaction)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, CommandType commandType, OracleTransaction transaction)
         {
-            return conn.ExecuteReaderAsync(cmdText, null, commandType, transaction);
+            return await conn.ExecuteReaderAsync(cmdText, null, commandType, transaction);
         }
 
         /// <summary>
@@ -204,9 +204,9 @@ namespace OracleClientExtensions
         /// <param name="cmdText"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters)
         {
-            return conn.ExecuteReaderAsync(cmdText, parameters, CommandType.Text, null);
+            return await conn.ExecuteReaderAsync(cmdText, parameters, CommandType.Text, null);
         }
 
         /// <summary>
@@ -217,9 +217,9 @@ namespace OracleClientExtensions
         /// <param name="parameters"></param>
         /// <param name="transaction"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, OracleTransaction transaction)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, OracleTransaction transaction)
         {
-            return conn.ExecuteReaderAsync(cmdText, parameters, CommandType.Text, transaction);
+            return await conn.ExecuteReaderAsync(cmdText, parameters, CommandType.Text, transaction);
         }
 
         /// <summary>
@@ -230,9 +230,9 @@ namespace OracleClientExtensions
         /// <param name="parameters"></param>
         /// <param name="commandType"></param>
         /// <returns></returns>
-        public static Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType)
+        public static async Task<OracleDataReader> ExecuteReaderAsync(this OracleConnection conn, string cmdText, OracleParameter[] parameters, CommandType commandType)
         {
-            return conn.ExecuteReaderAsync(cmdText, parameters, commandType, null);
+            return await conn.ExecuteReaderAsync(cmdText, parameters, commandType, null);
         }
     }
 }

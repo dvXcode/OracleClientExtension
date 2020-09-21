@@ -3,15 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Danyil Volovyk</Authors>
-    <Version>0.2.4</Version>
+    <Version>0.2.5</Version>
     <Description>This is a tiny library with which you can extend OracleClient. Easy way to get Entities, ExpandoObjects and much more.</Description>
-    <Copyright />
+    <Copyright>Danyil Volovyk</Copyright>
     <PackageIcon>OracleClientExtesion.png</PackageIcon>
     <RepositoryUrl>https://github.com/sdaniil/OracleClientExtension</RepositoryUrl>
     <PackageTags>OracleClient, Expando, Entity, Extension</PackageTags>
-    <AssemblyVersion>0.2.4.0</AssemblyVersion>
+    <AssemblyVersion>0.2.5.0</AssemblyVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <FileVersion>0.2.5.0</FileVersion>
   </PropertyGroup>
   
   <ItemGroup>
