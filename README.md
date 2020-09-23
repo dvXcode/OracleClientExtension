@@ -14,11 +14,11 @@ This is a tiny library with which you can extend the possibilities of the Oracle
 ## Installing
 #### Via Package Manager 
 ```powershell
-Install-Package OracleClientExtension -Version 0.2.4
+Install-Package OracleClientExtension -Version 0.2.5
 ```
 #### Via .NET CLI
 ```powershell
-dotnet add package OracleClientExtension --version 0.2.4
+dotnet add package OracleClientExtension --version 0.2.5
 ```
 
 ## Samples
@@ -44,11 +44,11 @@ private readonly string _connectionString = "Data Source=localhost/XE;Persist Se
 ...
 public class DemoEntity
 {
-		public int EMPNO { get; set; }
-		public string ENAME { get; set; }
-		public string JOB { get; set; }
-		public DateTime HIREDATE { get; set; }
-		public int DEPTNO { get; set; }
+	public int EMPNO { get; set; }
+	public string ENAME { get; set; }
+	public string JOB { get; set; }
+	public DateTime HIREDATE { get; set; }
+	public int DEPTNO { get; set; }
 }
 ...
 try
@@ -62,6 +62,74 @@ catch (Exception ex)
     throw ex;
 }
 ```
+
+#### Get data as DataSet
+```c#
+private readonly string _connectionString = "Data Source=localhost/XE;Persist Security Info=True;User ID=USER;Password=PASSWORD";
+...
+try
+{
+    await using var conn = new OracleConnection(connectionString: _connectionString);
+    await conn.OpenAsync();
+    var resp = await conn.ExecuteDataSetAsync("SELECT * FROM DEMO WHERE ROWNUM <= 10");
+}
+catch (Exception ex)
+{
+    throw ex;
+}
+```
+
+#### Get data from table as ExpandoObjects with output OracleParameter
+```c#
+private readonly string _connectionString = "Data Source=localhost/XE;Persist Security Info=True;User ID=USER;Password=PASSWORD";
+...
+try
+{
+    await using var conn = new OracleConnection(connectionString: _connectionString);
+    await conn.OpenAsync();
+    
+    var param = new OracleParameter[1];
+    var countParam = new OracleParameter
+    {
+	ParameterName = ":1",
+	OracleDbType = OracleDbType.Int32,
+	Direction = ParameterDirection.Output
+    };
+
+    param[0] = countParam;
+    var resp = await conn.ExecuteExpandoObjectsAsync("BEGIN SELECT COUNT(*) INTO :1 FROM DEMO; END;", param);
+}
+catch (Exception ex)
+{
+    throw ex;
+}
+```
+
+
+#### Update table with ExecuteNonQueryAsync and OracleParameters
+```c#
+private readonly string _connectionString = "Data Source=localhost/XE;Persist Security Info=True;User ID=USER;Password=PASSWORD";
+...
+try
+{
+    await using var conn = new OracleConnection(connectionString: _connectionString);
+    await conn.OpenAsync();
+    
+    var command = conn.CreateCommand();
+    command.Parameters.Add(new OracleParameter("ENAME", "JOHN GROSS"));
+    command.Parameters.Add(new OracleParameter("HIREDATE", OracleDbType.Date, DateTime.Now, ParameterDirection.Input));
+    command.CommandText = "UPDATE DEMO SET ENAME=:ENAME WHERE HIREDATE=:HIREDATE ";
+
+    param[0] = countParam;
+    int rowsUpdated = await command.ExecuteNonQueryAsync();
+}
+catch (Exception ex)
+{
+    throw ex;
+}
+```
+
+
 
 ## Todo
 - [ ] Add Sample app
